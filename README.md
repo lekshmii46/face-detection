@@ -1,42 +1,71 @@
-#Face Recognition Attendance System
+Attendance System using Face Recognition
 
-This is a simple web application that uses face recognition to mark attendance automatically using a webcam.
+A real-time AI-powered attendance system built with Streamlit, OpenCV, and Machine Learning that automatically detects faces and records attendance without manual input.
 
-Features
-Register students using webcam
-Capture face images
-Train model automatically
-Mark attendance in real time
-Save attendance in CSV file
-View and download reports
-Technologies Used
-Python
-Streamlit
-OpenCV
-Scikit-learn (KNN)
-Pandas, NumPy
-How to Run
-Install required libraries:
+🌟 Overview
+
+This project replaces traditional attendance methods with a contactless, automated system. It captures student faces via webcam, trains a machine learning model, and marks attendance instantly when a face is recognized.
+
+✨ Key Highlights
+🎥 Real-time face detection using OpenCV
+🧑‍💻 Easy student registration via webcam
+🧠 Machine Learning model (KNN) for recognition
+📅 Daily attendance logs saved automatically
+📥 Downloadable attendance reports (CSV)
+⚡ Fast and lightweight Streamlit interface
+🧰 Tech Stack
+Category	Tools Used
+Frontend UI	Streamlit
+Computer Vision	OpenCV
+ML Algorithm	KNN (Scikit-learn)
+Data Handling	Pandas, NumPy
+Model Storage	Joblib
+📁 Directory Structure
+.
+├── app.py
+├── dataset/
+│   └── student_name_id/
+│       └── images...
+├── attendance_records/
+│   └── Attendance_YYYY-MM-DD.csv
+├── model.pkl
+⚙️ Setup Instructions
+1️⃣ Clone the Project
+git clone <repository-url>
+cd face-attendance-system
+2️⃣ Install Required Libraries
 pip install streamlit opencv-python numpy pandas scikit-learn joblib
-Run the app:
+▶️ Run the Application
 streamlit run app.py
-How to Use
-Go to Register Student
-Enter name and ID
-Capture face images
-Model will train automatically
-
-Then:
-
-Go to Live Attendance
-Start webcam
-Attendance will be marked automatically
-Output
-Attendance is saved in:
-attendance_records/
-Format:
-Name | Time | Date
-Notes
-Make sure webcam is working
+📌 Usage Guide
+🔐 Register a Student
+Input Name and Student ID
+System captures 100 face samples
+Automatically trains the recognition model
+🎯 Start Live Attendance
+Enable webcam
+System detects & recognizes faces
+Marks attendance instantly
+Unknown faces are ignored
+📊 View Attendance Reports
+Select date-wise records
+View structured table
+Export as CSV file
+🧠 Behind the Scenes
+Faces are detected using Haar Cascade Classifier
+Each face is:
+Converted to grayscale
+Resized to 50×50 pixels
+Flattened into feature vectors
+KNN algorithm is trained on these vectors
+During recognition:
+Nearest neighbors are checked
+Distance threshold determines if face is known or unknown
+📄 Sample Attendance Record
+Name,Time,Date
+John_101,09:12:34,2026-05-02
+⚠️ Important Notes
 Good lighting improves accuracy
-Register each student clearly
+Avoid multiple faces during registration
+Ensure webcam permissions are enabled
+Model retrains after each new registration
